@@ -1,9 +1,9 @@
 import { useState } from 'react';
-
 import { TextInput, View, StyleSheet, Alert } from 'react-native';
-import PrimaryButton from '../components/PrimaryButton';
+import Colors from '../utils/colors';
+import PrimaryButton from '../components/UI/PrimaryButton';
 
-const MainScreen = () => {
+const MainScreen = ({ onConfirmNumber }) => {
     const [enteredNumber, setEnteredNumber] = useState('');
 
     function numberInputHandler(enteredText) {
@@ -24,6 +24,7 @@ const MainScreen = () => {
             );
             return;
         }
+        onConfirmNumber(chosenNumber)
     }
 
     return (
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
         marginTop: 100,
         marginHorizontal: 24,
         padding: 16,
-        backgroundColor: '#3b021f',
+        backgroundColor: Colors.darkMainScreenBackGround,
         borderRadius: 10,
         elevation: 4,
         shadowColor: '#000',
@@ -68,9 +69,9 @@ const styles = StyleSheet.create({
         fontSize: 32,
         height: 50,
         width: 50,
-        borderBottomColor: '#ddb52f',
+        borderBottomColor: Colors.yellowColor,
         borderBottomWidth: 2,
-        color: '#ddb52f',
+        color: Colors.yellowColor,
         marginVertical: 8,
         fontWeight: 'bold',
         textAlign: 'center',
